@@ -30,6 +30,22 @@ metric.learning = function(target, df){
   return(metric$solution)
 }
 
+
+#' Returns the pairwise differences for each componeted of a data frame and squares every element 
+#' @param target A vector (or single column data frame) that is the desired targets. 
+#' @param df Numeric data frame where features are columns. 
+#' @keywords row pairwise distances correlation
+#' @export
+#' @examples
+#' metric.learning()
+#' x <- read.table(textConnection('t0 t1 t2 
+#' aaa  0  1  0
+#' bbb  1  0  1
+#' ccc  1  1  1
+#' ddd  1  1  0
+#' ' ), header=TRUE)
+#' pairwise.squared.diff(target = x$t0, df = x)
+#' 
 pairwise.squared.diff = function(df, desired.key = TRUE){
   if(class(df) != "data.frame"){
     df = as.data.frame(df)
